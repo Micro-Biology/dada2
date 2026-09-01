@@ -5,7 +5,7 @@
 #include <algorithm>
 //#define NBOOT 100
 extern int NBOOT;
-in NBOOT = 100;
+int NBOOT = 100;
   
 using namespace Rcpp;
 

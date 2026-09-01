@@ -240,7 +240,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // C_assign_taxonomy2
-Rcpp::List C_assign_taxonomy2(std::vector<std::string> seqs, std::vector<std::string> rcs, std::vector<std::string> refs, std::vector<int> ref_to_genus, Rcpp::IntegerMatrix genusmat, bool try_rc, bool verbose);
+Rcpp::List C_assign_taxonomy2(std::vector<std::string> seqs, std::vector<std::string> rcs, std::vector<std::string> refs, std::vector<int> ref_to_genus, Rcpp::IntegerMatrix genusmat, bool try_rc, bool verbose, int nboot);
 RcppExport SEXP _dada2_C_assign_taxonomy2(SEXP seqsSEXP, SEXP rcsSEXP, SEXP refsSEXP, SEXP ref_to_genusSEXP, SEXP genusmatSEXP, SEXP try_rcSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -252,7 +252,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::IntegerMatrix >::type genusmat(genusmatSEXP);
     Rcpp::traits::input_parameter< bool >::type try_rc(try_rcSEXP);
     Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
-    rcpp_result_gen = Rcpp::wrap(C_assign_taxonomy2(seqs, rcs, refs, ref_to_genus, genusmat, try_rc, verbose));
+    rcpp_result_gen = Rcpp::wrap(C_assign_taxonomy2(seqs, rcs, refs, ref_to_genus, genusmat, try_rc, verbose, nboot));
     return rcpp_result_gen;
 END_RCPP
 }

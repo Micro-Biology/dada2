@@ -47,7 +47,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type SSE(SSESEXP);
     Rcpp::traits::input_parameter< bool >::type gapless(gaplessSEXP);
     Rcpp::traits::input_parameter< bool >::type greedy(greedySEXP);
-    Rcpp::traits::input_parameter<int>::type nboot(nbootSEXP);
     rcpp_result_gen = Rcpp::wrap(dada_uniques(seqs, abundances, priors, err, quals, match, mismatch, gap, use_kmers, kdist_cutoff, band_size, omegaA, omegaP, omegaC, detect_singletons, max_clust, min_fold, min_hamming, min_abund, use_quals, final_consensus, vectorized_alignment, homo_gap, multithread, verbose, SSE, gapless, greedy));
     return rcpp_result_gen;
 END_RCPP
@@ -253,6 +252,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::IntegerMatrix >::type genusmat(genusmatSEXP);
     Rcpp::traits::input_parameter< bool >::type try_rc(try_rcSEXP);
     Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    Rcpp::traits::input_parameter<int>::type nboot(nbootSEXP);
     rcpp_result_gen = Rcpp::wrap(C_assign_taxonomy2(seqs, rcs, refs, ref_to_genus, genusmat, try_rc, verbose, nboot));
     return rcpp_result_gen;
 END_RCPP

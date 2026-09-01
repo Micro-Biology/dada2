@@ -47,6 +47,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type SSE(SSESEXP);
     Rcpp::traits::input_parameter< bool >::type gapless(gaplessSEXP);
     Rcpp::traits::input_parameter< bool >::type greedy(greedySEXP);
+    Rcpp::traits::input_parameter<int>::type nboot(nbootSEXP);
     rcpp_result_gen = Rcpp::wrap(dada_uniques(seqs, abundances, priors, err, quals, match, mismatch, gap, use_kmers, kdist_cutoff, band_size, omegaA, omegaP, omegaC, detect_singletons, max_clust, min_fold, min_hamming, min_abund, use_quals, final_consensus, vectorized_alignment, homo_gap, multithread, verbose, SSE, gapless, greedy));
     return rcpp_result_gen;
 END_RCPP
@@ -241,7 +242,7 @@ END_RCPP
 }
 // C_assign_taxonomy2
 Rcpp::List C_assign_taxonomy2(std::vector<std::string> seqs, std::vector<std::string> rcs, std::vector<std::string> refs, std::vector<int> ref_to_genus, Rcpp::IntegerMatrix genusmat, bool try_rc, bool verbose, int nboot);
-RcppExport SEXP _dada2_C_assign_taxonomy2(SEXP seqsSEXP, SEXP rcsSEXP, SEXP refsSEXP, SEXP ref_to_genusSEXP, SEXP genusmatSEXP, SEXP try_rcSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _dada2_C_assign_taxonomy2(SEXP seqsSEXP, SEXP rcsSEXP, SEXP refsSEXP, SEXP ref_to_genusSEXP, SEXP genusmatSEXP, SEXP try_rcSEXP, SEXP verboseSEXP, SEXP nbootSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -286,7 +287,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_dada2_C_matchRef", (DL_FUNC) &_dada2_C_matchRef, 4},
     {"_dada2_C_matrixEE", (DL_FUNC) &_dada2_C_matrixEE, 1},
     {"_dada2_C_nwvec", (DL_FUNC) &_dada2_C_nwvec, 7},
-    {"_dada2_C_assign_taxonomy2", (DL_FUNC) &_dada2_C_assign_taxonomy2, 7},
+    {"_dada2_C_assign_taxonomy2", (DL_FUNC) &_dada2_C_assign_taxonomy2, 8},
     {"_dada2_RcppExport_registerCCallable", (DL_FUNC) &_dada2_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}
 };
